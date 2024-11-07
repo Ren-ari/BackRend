@@ -6,16 +6,42 @@
   <title>Document</title>
   <link href="/main.css" rel="stylesheet">
 </head>
-  <body class="grey-bg">
+<body class="grey-bg">
     
-    <div class="white-bg">
-        <h4><%= 글목록[0].title %></h4>
-        <p>글내용임</p>
-      <div>
+  <%- include('nav.ejs') %>
+  <hr>
+  <div class="white-bg">
+    
+    <% for (let i = 0; i < 글목록.length; i++){ %>
       <div class="list-box">
-        <h4>글제목임</h4>
+        <h4><a href="/detail/<%= 글목록[i]._id %>"><%= 글목록[i].title %></a>
+        <a href="/edit/<%= 글목록[i]._id %>">수정</a>
+        <span class="delete" data-id="<%= 글목록[i]._id %>">삭제</span>
+        </h4>
         <p>글내용임</p>
       </div>
-    </div>
+    <% } %>
+  </div>
+
+  <script>
+    for (let i = 0; i < '<%= 글목록.length %>'; i++){
+      document.querySelectorAll('.delete')[i].addEventListener('click',function(e){
+        fetch('/delete?docid=' + e.target.dataset.id, {
+        method : 'delete'
+      })
+      .then((r)=>r.text())
+      .then((r)=>{
+        e.target.parentElement.parentElement.style.display='none';
+       })
+      
+    })
+  }
+  
+  
+  </script>
+
+
+</body>
+    
 </body>
 </html>
