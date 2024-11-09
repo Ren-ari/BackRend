@@ -6,6 +6,7 @@ const methodOverride = require('method-override');
 
 app.use(methodOverride('_method'))
 app.use(express.static(__dirname + '/public'));
+app.use(express.static(__dirname + '/video'));
 app.set('view engine', 'ejs');
 app.use(express.json())
 app.use(express.urlencoded({extended:true}))

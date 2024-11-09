@@ -1,14 +1,15 @@
-html {
+html,
+body {
   width: 100vw;
   height: 100vh;
   margin: 0;
-  padding: 0;
 }
 
 body {
   display: flex;
   flex-direction: column;
   align-items: center;
+  margin: 0;
 }
 
 button,
@@ -42,11 +43,49 @@ span {
 }
 
 .main-menu {
+  position: relative;
   display: flex;
-  width: 80%;
+  width: 100%;
   height: 100%;
   align-items: center;
   justify-content: center;
+}
+
+.background-video {
+  display: flex;
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+}
+
+.background-video video {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  z-index: -1;
+}
+
+.background-video{
+ 
+}
+
+.custom-container {
+  position: relative;
+  width: 400px;
+  height: 555px;
+  background: rgba(255, 255, 255, .1);
+  backdrop-filter: blur(30px);
+  border-radius: 16px;
+  padding: 20px;
+  color: #fff;
+  font-family: "Roboto", sans-serif;
+  font-weight: bolder;
+  font-size: 30px;
+  text-align: center;
 }
 
 .form-box h4 {
