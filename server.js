@@ -7,6 +7,7 @@ const methodOverride = require('method-override');
 app.use(methodOverride('_method'))
 app.use(express.static(__dirname + '/public'));
 app.use(express.static(__dirname + '/video'));
+app.use(express.static(__dirname + '/image'));
 app.set('view engine', 'ejs');
 app.use(express.json())
 app.use(express.urlencoded({extended:true}))
@@ -31,6 +32,10 @@ new MongoClient(url,).connect().then((client) => {
 app.get('/', (요청, 응답) => {
   응답.render('index.ejs')
 });
+
+app.get('/profile', (요청, 응답) => {
+  응답.render('profile.ejs')
+})
 
 app.get('/list', async (요청, 응답) => {
   let result = await db.collection('post').find().toArray();

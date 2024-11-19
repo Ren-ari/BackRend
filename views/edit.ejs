@@ -1,37 +1,21 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Document</title>
-  <link
-      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css"
-      rel="stylesheet"
-      integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH"
+  <%- include('header') %>
+  <body class="grey-bg">
+    <%- include('nav.ejs') %>
+
+    <form class="form-box" action="/edit?_method=PUT" method="post">
+      <h4>수정하기</h4>
+      <input name="id" value="<%= result._id %>" style="display: none" />
+      <input name="title" value="<%= result.title %>" />
+      <input name="content" value="<%= result.content %>" />
+      <button type="submit">전송</button>
+    </form>
+
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
+      integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
       crossorigin="anonymous"
-    />
-    <link rel="stylesheet" href="/main.css">
-</head>
-<body class="grey-bg">
-
- <%- include('nav.ejs') %>
-
- <form class="form-box" action="/edit?_method=PUT" method="post">
-   <h4>수정하기</h4>
-   <input name="id" value="<%= result._id %>" style="display:none">
-   <input name="title" value="<%= result.title %>">
-   <input name="content" value="<%= result.content %>">
-   <button type="submit">전송</button>
- </form> 
-
-
-
-
- <script
- src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
- integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
- crossorigin="anonymous"
-></script>
-
-</body>
+    ></script>
+  </body>
 </html>
